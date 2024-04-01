@@ -124,6 +124,8 @@ def conversation_tracking(text_message, user_id):
     :param text_message: text message
     :return: str
     """
+    # Send the question text back to the user
+    # Send the transcribed text back to the user
     # Get the last 10 conversations and responses for this user
     user_conversations = conversations.get(user_id, {'conversations': [], 'responses': []})
     user_messages = user_conversations['conversations'][-9:] + [text_message]
@@ -150,7 +152,8 @@ def conversation_tracking(text_message, user_id):
     # Generate response
     task = generate_response_chat.apply_async(args=[conversation_history])
     response = task.get()
-
+    # Send the question text back to the user
+    # Send the transcribed text back to the user
     # Add the response to the user's responses
     user_responses.append(response)
 
@@ -262,7 +265,8 @@ def handle_image(message):
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
     user_id = message.chat.id
-
+    # Send the question text back to the user
+    # Send the transcribed text back to the user
     # Handle /clear command
     if message.text == '/clear':
         conversations[user_id] = {'conversations': [], 'responses': []}
