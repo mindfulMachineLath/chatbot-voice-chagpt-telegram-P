@@ -52,7 +52,3 @@ ChatGPT Voice Chatbot Telegram is a Python and Flask-based GitHub repository tha
 - Speak to the chatbot using voice-to-text or type your message directly.
 - The chatbot will respond using text-to-voice or text.
 - Use the /clear command to clear the conversation history.
-
-## Contribution
-
-Contributions are welcome! Please see the CONTRIBUTING.md file for more details.
