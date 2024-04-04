@@ -225,6 +225,17 @@ def handle_voice(message):
     os.remove("voice_message_replay.ogg")
 
 
+@bot.message_handler(func=lambda message: True)
+def test_message(message):
+    user_id = message.chat.id
+    if message.text == '/clear':
+        conversations[user_id] = {'conversations': [], 'responses': []}
+        bot.reply_to(message, "Conversations and responses cleared!")
+        return
+    response = conversation_tracking(message.text, user_id)
+    bot.reply_to(message, response)
+
+
 @bot.message_handler(commands=["create", "image"])
 def handle_image(message):
     space_markup = '                                                                                  '
